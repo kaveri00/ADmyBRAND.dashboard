@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { LoginForm } from '@/components/LoginForm';
 import { Dashboard } from '@/components/Dashboard';
+import { Toaster } from '@/components/ui/toaster';
 
 const Index = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -17,7 +18,12 @@ const Index = () => {
     return <LoginForm onLogin={handleLogin} />;
   }
 
-  return <Dashboard onLogout={handleLogout} />;
+  return (
+    <>
+      <Dashboard onLogout={handleLogout} />
+      <Toaster />
+    </>
+  );
 };
 
 export default Index;
